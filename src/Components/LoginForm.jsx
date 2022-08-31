@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router';
 import LoginCss from '../Css/LoginPageCss.module.css';
 import Input from '../ReUsable/Input';
 
@@ -8,6 +9,7 @@ function LoginForm() {
     const [checkPassword, setCheckPassword] = useState(false);
     const [errorPassword, setErrorPassword] = useState(false);
     const [errorEmail, setErrorEmail] = useState(false);
+    const navigate = useNavigate();
 
     const errorMsg = {
         email: 'Please enter a valid email',
@@ -49,12 +51,16 @@ function LoginForm() {
         e.preventDefault();
         }
         
-        
+        if(checkEmail ){
+            if(checkPassword){
+                navigate('/dashboard');
+            }
+        }
         // e.preventDefault();
     }
 
     return (
-        <form action='/dashboard' method='' className={LoginCss.login}>
+        <form onSubmit={onSubmitHandler} className={LoginCss.login}>
         <div className={LoginCss.email}>
             <Input htmlFor="email" classNamelabel={LoginCss.emaillabel} value="Email" 
             type="email" autofocus={true} onChange={emailChangeHandler}  className={checkEmail ? LoginCss.inputemail : LoginCss.error} autoFocus placeholder='email' name='email' />
@@ -70,7 +76,7 @@ function LoginForm() {
         </div>
 
         <div className={LoginCss.submit}>
-            <input onClick={onSubmitHandler} type="submit" value="Login" />
+            <input type="submit" value="Login" />
         </div>
         </form>
     )
