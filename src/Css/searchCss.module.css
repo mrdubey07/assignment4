@@ -31,3 +31,11 @@
 .span img{
     max-width: 30px;    
 }
+
+.loadingSpinner{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;    
+    height: 90vh;
+}

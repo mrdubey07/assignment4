@@ -1,14 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { AddStatsToRedux, AddUserToRedux } from '../store/actions/ActionConstants';
 import DashboardStats from '../Components/DashboardStats'
 import DashboardUsers from '../Components/DashboardUsers';
+import LoadingSpinner from '../ReUsable/LoadingSpinner';
 
 function DashboardPage() {
 
   const dispatch = useDispatch();
   const stats = useSelector((state)=>state.stats);
-  const users = useSelector((state)=> state.users)
+  const users = useSelector((state)=> state.users);
+  const [isLoading,setIsLoading] = useState(true);
 
   useEffect(() => {
       async function fetchStats(){
@@ -16,6 +18,7 @@ function DashboardPage() {
       const stats = await response.json();
       // console.log(stats);
       dispatch({ type: AddStatsToRedux, payload: stats });
+      
       }
       fetchStats();   
   },[])
@@ -26,6 +29,7 @@ function DashboardPage() {
           const users = await response.json();
           // console.log(users);
           dispatch({ type: AddUserToRedux, payload: users });
+          setIsLoading(false);
           }
           fetchUser();  
   },[])
@@ -33,7 +37,9 @@ function DashboardPage() {
   return (
     <div>
         <DashboardStats stats={stats} />
+        {isLoading ? <LoadingSpinner /> :
         <DashboardUsers users={users} />
+        }
     </div>
   )
 }
