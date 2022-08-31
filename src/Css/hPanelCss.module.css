@@ -1,0 +1,58 @@
+.container{
+    width: 100%;
+    height: fit-content;
+    background-color: black;
+    color: beige;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.h2{
+    margin-left: 40px;
+    font-size: 28px;
+    border-bottom: 1px solid red;
+}
+
+.statsValue{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+
+.lilabel{
+    display: inline;
+    margin-right: 5px;  
+    color: greenyellow;
+}
+
+.lirate{
+    display: inline;
+    margin-left: 5px;
+    color: rgb(4, 185, 4);
+    margin-right: 15px;
+}
+
+.statsValue{
+    position: relative;
+    animation: linear infinite;
+    left: -200px;
+    animation-name: run;
+    animation-duration: 15s;
+    -webkit-animation: linear infinite;
+  -webkit-animation-name: run;
+  -webkit-animation-duration: 15s;
+}
+
+@keyframes run {
+    0% {
+      left: 0;
+    }
+    100% {
+      left: 100%;
+    }
+  }

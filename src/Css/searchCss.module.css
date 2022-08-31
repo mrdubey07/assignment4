@@ -1,0 +1,33 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input{
+    margin: 10px;
+    margin-top: 40px;
+    height: 30px;
+    width: 90vw;
+    border: none;
+    border-bottom: 1px solid greenyellow;
+    background-color: transparent;
+    caret-color: red;
+    /* position: relative; */
+    /* text-align: center; */
+}
+
+.input:focus{
+    outline: none;
+}
+
+.span{
+    position: absolute;
+    padding: 10px;
+    right: 57px;
+    top: 110px;
+}
+
+.span img{
+    max-width: 30px;    
+}

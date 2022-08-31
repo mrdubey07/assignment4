@@ -1,0 +1,18 @@
+.container{
+    height: auto;
+    /* border-radius: 11px; */
+    width: 180px;
+
+    /* padding: 20px; */
+    background-color: rgb(241, 241, 119);
+    -webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+}
+
+.img{
+    height: auto;
+    width: 100%;
+    vertical-align: middle;
+    margin-bottom: 5px;
+}
